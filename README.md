@@ -9,7 +9,3 @@
 ### Docker-Log
 
 Dockerのログの確認テストのためのディレクトリ。
-
-### WebAudio-API
-
-Web Audio APIのテストのためのディレクトリ。
