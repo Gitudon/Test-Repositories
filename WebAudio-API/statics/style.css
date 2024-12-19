@@ -1,0 +1,17 @@
+h1{
+    text-align: center;
+}
+button{
+    margin: 10px;
+    font-size: 20px;
+    text-align: center;
+}
+.buttons{
+    text-align: center;
+}
+#startButton{
+    background-color: blue;
+}
+#stopButton{
+    background-color: red;
+}
