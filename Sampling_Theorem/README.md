@@ -1,5 +1,5 @@
 ## 使い方
 
-まず`uv sync`で依存関係をインストールします。
+`pip install -r requirements.txt`で必要なパッケージをインストールしてください。
 
-`uv run sampling_theorem.py` で入力に応じてサンプリング定理のグラフを表示します。
+その後、`python sampling_theorem.py`を実行すると、サンプリング定理に基づく信号処理の基本的な例を見ることができます。
