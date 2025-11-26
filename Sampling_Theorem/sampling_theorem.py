@@ -1,4 +1,3 @@
-import os
 import matplotlib.pyplot as plt
 import numpy as np
 
@@ -19,7 +18,5 @@ def draw_sin_wave(frequency: float):
 
 
 if __name__ == "__main__":
-    os.environ["TCL_LIBRARY"] = "C:/Python32/tcl/tcl8.5"
-    os.environ["TK_LIBRARY"] = "C:/Python32/tcl/tk8.5"
     freq = float(input("Enter the frequency of the sine wave (Hz): "))
     draw_sin_wave(freq)
