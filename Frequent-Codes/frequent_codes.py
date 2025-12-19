@@ -1,4 +1,4 @@
-class Macro:
+class Frequent:
 
     # 整数Nと、N要素のリストAを入力する
     def input_list():
@@ -18,10 +18,10 @@ class Macro:
 
 
 if __name__ == "__main__":
-    N, A = Macro.input_list()
+    N, A = Frequent.input_list()
     print(N)
     print(A)
-    H, W, matrix = Macro.input_matrix()
+    H, W, matrix = Frequent.input_matrix()
     print(H)
     print(W)
     print(matrix)
