@@ -4,7 +4,8 @@ import numpy as np
 
 def draw_sin_wave(frequency: float, sampling_rate: float):
     t = np.arange(0, 2, 1 / sampling_rate)  # サンプリング時間軸
-    t_continuous = np.linspace(0, 2, 1000)  # 連続時間軸
+    period = 1 / frequency  # 周期を計算
+    t_continuous = np.linspace(0, period * 2, 1000)  # 連続時間軸を2周期に設定
 
     y = np.sin(2 * np.pi * frequency * t)  # サンプリングした正弦波
     y_continuous = np.sin(2 * np.pi * frequency * t_continuous)  # 連続正弦波
@@ -13,13 +14,21 @@ def draw_sin_wave(frequency: float, sampling_rate: float):
 
     # 連続波とサンプリング波を1つのグラフに表示
     plt.plot(t_continuous, y_continuous, label="Continuous", linewidth=2)
-    plt.plot(t, y, "-o", label="Sampled", color="red", linewidth=2, markersize=6)
+    plt.plot(
+        t[t <= period * 2],
+        y[t <= period * 2],
+        "-o",
+        label="Sampled",
+        color="red",
+        linewidth=2,
+        markersize=6,
+    )
 
     plt.title(f"Sine Wave: {frequency} Hz, Sampling Rate: {sampling_rate} Hz")
     plt.xlabel("Time [s]")
     plt.ylabel("Amplitude")
     plt.grid()
-    plt.xlim(0, 1)
+    plt.xlim(0, period * 2)
     plt.legend()
 
     plt.tight_layout()
