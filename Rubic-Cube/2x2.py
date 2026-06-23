@@ -139,8 +139,112 @@ def multiply_matrix_in_list(matrix_list):
 #     square_matrix(F),
 #     inverse_matrix(D),
 # ]
-g = []
 
-G = multiply_matrix_in_list(g)
+P1 = [
+    [0, 0, 0, 0, 0, 0, 1, 0],
+    [0, 0, 0, 0, 2, 0, 0, 0],
+    [0, 0, 1, 0, 0, 0, 0, 0],
+    [0, 3, 0, 0, 0, 0, 0, 0],
+    [0, 0, 0, 3, 0, 0, 0, 0],
+    [1, 0, 0, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 0, 0, 3],
+    [0, 0, 0, 0, 0, 3, 0, 0],
+]
+
+p2 = [
+    multiply_matrix_in_list(
+        [
+            multiply_matrix(R, F),
+            U,
+            multiply_matrix(R, F),
+            inverse_matrix(U),
+        ]
+    ),
+    square_matrix(
+        multiply_matrix_in_list(
+            [
+                multiply_matrix(L, F),
+                U,
+                multiply_matrix(L, F),
+                inverse_matrix(U),
+            ]
+        ),
+    ),
+    multiply_matrix_in_list(
+        [
+            multiply_matrix(U, R),
+            inverse_matrix(B),
+            multiply_matrix(U, R),
+            B,
+        ]
+    ),
+    square_matrix(
+        multiply_matrix_in_list(
+            [
+                multiply_matrix(L, F),
+                U,
+                multiply_matrix(L, F),
+                inverse_matrix(U),
+            ]
+        ),
+    ),
+    square_matrix(
+        multiply_matrix_in_list(
+            [
+                multiply_matrix(D, R),
+                inverse_matrix(B),
+                multiply_matrix(D, R),
+                B,
+            ]
+        ),
+    ),
+    multiply_matrix_in_list(
+        [
+            multiply_matrix(R, B),
+            D,
+            multiply_matrix(R, B),
+            inverse_matrix(D),
+        ]
+    ),
+    multiply_matrix_in_list(
+        [
+            multiply_matrix(D, R),
+            inverse_matrix(B),
+            multiply_matrix(D, R),
+            B,
+        ]
+    ),
+    multiply_matrix_in_list(
+        [
+            multiply_matrix(U, R),
+            inverse_matrix(B),
+            multiply_matrix(U, R),
+            B,
+        ]
+    ),
+    square_matrix(
+        multiply_matrix_in_list(
+            [
+                multiply_matrix(L, F),
+                U,
+                multiply_matrix(L, F),
+                inverse_matrix(U),
+            ]
+        ),
+    ),
+    multiply_matrix_in_list(
+        [
+            multiply_matrix(L, B),
+            D,
+            multiply_matrix(L, B),
+            inverse_matrix(D),
+        ]
+    ),
+    U,
+]
+P2 = multiply_matrix_in_list(p2)
+
+G = multiply_matrix(P2, P1)
+
 for row in G:
     print(row)
