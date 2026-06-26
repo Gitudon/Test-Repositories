@@ -1,3 +1,4 @@
+# 各基本操作に対応する行列
 U = [
     [0, 0, 0, 1, 0, 0, 0, 0],
     [1, 0, 0, 0, 0, 0, 0, 0],
@@ -60,7 +61,9 @@ B = [
 ]
 
 
+# 4元体上の掛け算
 def multiply_on_four(a, b):
+    # 4元体上の掛け算の表
     mapping = [
         [0, 0, 0, 0],
         [0, 1, 2, 3],
@@ -70,11 +73,14 @@ def multiply_on_four(a, b):
     return mapping[a][b]
 
 
+# 4元体上の逆元計算
 def inverse_element_on_four(a):
+    # 4元体上の逆元の表
     mapping = [0, 1, 3, 2]
     return mapping[a]
 
 
+# 逆行列を掃き出し法で求める
 def inverse_matrix(matrix):
     n = len(matrix)
     aug = []
@@ -86,7 +92,7 @@ def inverse_matrix(matrix):
         while pivot_row < n and aug[pivot_row][i] == 0:
             pivot_row += 1
         if pivot_row == n:
-            raise ValueError("逆行列が存在しません（正則行列ではありません）")
+            raise ValueError("逆行列なし")
         if pivot_row != i:
             aug[i], aug[pivot_row] = aug[pivot_row], aug[i]
         pivot_val = aug[i][i]
@@ -104,6 +110,7 @@ def inverse_matrix(matrix):
     return inv_matrix
 
 
+# 行列同士の掛け算
 def multiply_matrix(matrix1, matrix2):
     buffer = [[0] * 8 for _ in range(8)]
     for i in range(8):
@@ -113,10 +120,12 @@ def multiply_matrix(matrix1, matrix2):
     return buffer
 
 
+# 行列の二乗
 def square_matrix(matrix):
     return multiply_matrix(matrix, matrix)
 
 
+# リストに入っている行列の積
 def multiply_matrix_in_list(matrix_list):
     result = matrix_list[-1]
     for matrix in reversed(matrix_list[:-1]):
